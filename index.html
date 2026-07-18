@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Мудрый... Кристаллов</title>
+    <title>Мудрый Дуб: Поиск Кристаллов</title>
     <style>
         body { background: #090d16; color: #f8fafc; font-family: Arial, sans-serif; text-align: center; padding: 0; margin: 0; user-select: none; }
         .screen { display: none; padding: 25px; max-width: 650px; margin: 20px auto; border-radius: 20px; box-shadow: 0 0 35px rgba(0,0,0,0.7); }
@@ -79,7 +79,6 @@
             <button class="world-btn" id="w3-btn" onclick="switchMapWorld(3)">Мир 3 🟨</button>
             <button class="world-btn" id="w4-btn" onclick="switchMapWorld(4)">Мир 4 🌊</button>
             <button class="world-btn" id="w5-btn" onclick="switchMapWorld(5)">Мир 5 🪲</button>
-            <button class="world-btn" id="w6-btn" onclick="switchMapWorld(6)" style="display:none; background:#10b981;">🌾 ФАРМ</button>
         </div>
         <canvas id="mapCanvas" width="600" height="270"></canvas>
         <button class="btn btn-back" onclick="backToMenu()">В меню</button>
@@ -133,21 +132,21 @@
 
 <script>
     let coins = 0; let crystals = 0; let selectedLevelToPlay = 1;
-    let currentMapWorld = 1; let isFarmWorldActive = false;
-    let globalActiveEvent = "none"; let isAdminVerified = false; let playerNickname = "";
+    let currentMapWorld = 1; let globalActiveEvent = "none"; let isAdminVerified = false; let playerNickname = "";
 
     const lanes = new Array(45, 135, 225); 
     let playerLane = 1; let playerX = 60; let buildingsPassed = 0;
     let gameActive = false; let obstacles = []; let gameCrystals = []; let spawnTimer = 0;
-    let extraLivesCount = 0; let drops = [];
 
     let bossActive = false; let bossMode = 'charging'; let bossTimer = 0; let bossX = 500;
     let warningLane = 0; let gorillaAttackCount = 0;
 
     const canvas = document.getElementById('gameCanvas'); const ctx = canvas.getContext('2d');
     const mapCanvas = document.getElementById('mapCanvas'); const mctx = mapCanvas.getContext('2d');
-
     let finishedLevels = Array(100).fill(false);
     
     const skins = [
         { id: 0, name: "Лягушка", art: "🐸", cost: 0, owned: true },
+        { id: 1, name: "Робот", art: "🤖", cost: 45, owned: false },
+        { id: 2, name: "Веном", art: "🖤", cost: 100, owned: false },
+        { id: 4, name: "Ассасин", art: "🥷", cost: 250, owned: false },
