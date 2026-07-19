@@ -38,11 +38,10 @@
 
     <div class="header-buttons">
         <button class="btn-nav" onclick="openPromoScreen()">🔑 Коды</button>
-        <button class="btn-nav" id="admin-panel-btn" onclick="goToAdminScreen()" style="display:none; background:#7c3aed;">🔮 Панель Ивентов</button>
+        <button class="btn-nav" id="admin-panel-btn" style="display:none; background:#7c3aed;" onclick="goToAdminScreen()">🔮 Панель Ивентов</button>
         <button class="btn-nav" onclick="alert('ТГ Канал создателя: t.me/runner231')">⚙️ Инфо</button>
     </div>
 
-    <!-- ЭКРАН ВХОДА УБРАН! ИГРА СРАЗУ СТАРТУЕТ С МЕНЮ -->
     <div id="screen-menu" class="screen active">
         <div style="text-align: left; color: #38bdf8; font-weight: bold; margin-bottom: 10px;">👤 Игрок: [<span id="display-player-name">Загрузка...</span>]</div>
         <h1>Главное Меню</h1>
@@ -133,8 +132,8 @@
     let bossActive = false; let bossMode = 'charging'; let bossTimer = 0; let bossX = 500;
     let warningLane = 0; let gorillaAttackCount = 0;
 
-    const canvas = document.getElementById('gameCanvas'); const ctx = canvas.getContext('2d');
-    const mapCanvas = document.getElementById('mapCanvas'); const mctx = mapCanvas.getContext('2d');
+    const canvas = document.getElementById('gameCanvas'); const ctx = canvas ? canvas.getContext('2d') : null;
+    const mapCanvas = document.getElementById('mapCanvas'); const mctx = mapCanvas ? mapCanvas.getContext('2d') : null;
     let finishedLevels = Array(100).fill(false);
     
     const skins = [
@@ -149,7 +148,8 @@
     ];
     let currentSkin = 0;
 
-    // ГЕНИАЛЬНАЯ СИСТЕМА АВТО-НИКНЕЙМОВ ЮЗЕР1, ЮЗЕР2!
     function loadGame() {
         if(localStorage.getItem('s_player_nick')) {
             playerNickname = localStorage.getItem('s_player_nick');
+        } else { 
+            let randomId = Math.floor(Math.random() * 900) + 1;
