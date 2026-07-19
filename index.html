@@ -45,7 +45,7 @@
 
     <div id="screen-intro" class="screen active">
         <div style="font-size:80px; margin:15px 0;">🌳</div>
-        <h2>Мудрый投Дуб</h2>
+        <h2>Мудрый Дуб</h2>
         <input type="text" id="player-nickname-input" placeholder="Введите ваш никнейм..." style="padding: 12px; border-radius: 10px; width: 75%; font-size: 16px; border: 2px solid #10b981; background: #0f172a; color: white; text-align: center;"><br><br>
         <button class="btn btn-play" onclick="submitNicknameAndStart()">Ввести никнейм и войти ➔</button>
     </div>
@@ -137,6 +137,7 @@
     const lanes = new Array(45, 135, 225); 
     let playerLane = 1; let playerX = 60; let buildingsPassed = 0;
     let gameActive = false; let obstacles = []; let gameCrystals = []; let spawnTimer = 0;
+
     let bossActive = false; let bossMode = 'charging'; let bossTimer = 0; let bossX = 500;
     let warningLane = 0; let gorillaAttackCount = 0;
 
