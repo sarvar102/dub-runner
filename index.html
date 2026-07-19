@@ -8,7 +8,6 @@
         body { background: #090d16; color: #f8fafc; font-family: Arial, sans-serif; text-align: center; padding: 0; margin: 0; user-select: none; }
         .screen { display: none; padding: 25px; max-width: 650px; margin: 20px auto; border-radius: 20px; box-shadow: 0 0 35px rgba(0,0,0,0.7); }
         .active { display: block; }
-        #screen-intro { background: #111c24; border: 3px solid #10b981; }
         #screen-menu { background: #1e1e38; border: 3px solid #6366f1; }
         #screen-game { background: #18181b; border: 3px solid #f97316; }
         #screen-map { background: #1c1917; border: 3px solid #f97316; }
@@ -43,15 +42,9 @@
         <button class="btn-nav" onclick="alert('ТГ Канал создателя: t.me/runner231')">⚙️ Инфо</button>
     </div>
 
-    <div id="screen-intro" class="screen active">
-        <div style="font-size:80px; margin:15px 0;">🌳</div>
-        <h2>Мудрый Дуб</h2>
-        <input type="text" id="player-nickname-input" placeholder="Введите ваш никнейм..." style="padding: 12px; border-radius: 10px; width: 75%; font-size: 16px; border: 2px solid #10b981; background: #0f172a; color: white; text-align: center;"><br><br>
-        <button class="btn btn-play" onclick="submitNicknameAndStart()">Ввести никнейм и войти ➔</button>
-    </div>
-
-    <div id="screen-menu" class="screen">
-        <div style="text-align: left; color: #38bdf8; font-weight: bold; margin-bottom: 10px;">👤 Админ: [<span id="display-player-name">Загрузка...</span>]</div>
+    <!-- ЭКРАН ВХОДА УБРАН! ИГРА СРАЗУ СТАРТУЕТ С МЕНЮ -->
+    <div id="screen-menu" class="screen active">
+        <div style="text-align: left; color: #38bdf8; font-weight: bold; margin-bottom: 10px;">👤 Игрок: [<span id="display-player-name">Загрузка...</span>]</div>
         <h1>Главное Меню</h1>
         <div class="stats-bar">
             <div style="color:#eab308;">💰: <span id="m-coins">0</span></div>
@@ -137,7 +130,6 @@
     const lanes = new Array(45, 135, 225); 
     let playerLane = 1; let playerX = 60; let buildingsPassed = 0;
     let gameActive = false; let obstacles = []; let gameCrystals = []; let spawnTimer = 0;
-
     let bossActive = false; let bossMode = 'charging'; let bossTimer = 0; let bossX = 500;
     let warningLane = 0; let gorillaAttackCount = 0;
 
@@ -150,3 +142,14 @@
         { id: 1, name: "Робот", art: "🤖", cost: 45, owned: false },
         { id: 2, name: "Веном", art: "🖤", cost: 100, owned: false },
         { id: 4, name: "Ассасин", art: "🥷", cost: 250, owned: false },
+        { id: 5, name: "Брат Дуба", art: "🌳", cost: 500, owned: false },
+        { id: 6, name: "Шайлушай", art: "🍄", cost: 3000, owned: false }, 
+        { id: 3, name: "Админ Баха", art: "👑", cost: 10000, owned: false },
+        { id: 13, name: "АдминСарвар", art: "⚡", cost: 10000, owned: true } 
+    ];
+    let currentSkin = 0;
+
+    // ГЕНИАЛЬНАЯ СИСТЕМА АВТО-НИКНЕЙМОВ ЮЗЕР1, ЮЗЕР2!
+    function loadGame() {
+        if(localStorage.getItem('s_player_nick')) {
+            playerNickname = localStorage.getItem('s_player_nick');
