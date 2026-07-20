@@ -44,7 +44,10 @@
     </div>
 
     <div id="screen-menu" class="screen active">
-        <div style="text-align: left; color: #38bdf8; font-weight: bold; margin-bottom: 10px;">👤 Игрок: [<span id="display-player-name">Юзер_Админ</span>]</div>
+        <div style="display: flex; justify-content: space-between; max-width: 100%; margin-bottom: 10px; font-weight: bold;">
+            <div style="color: #38bdf8;">👤 Игрок: [<span id="display-player-name">Юзер_Админ</span>]</div>
+            <div style="color: #10b981;">🎭 Персонаж: [<span id="display-current-skin">🐸 Лягушка</span>]</div>
+        </div>
         <h1>Главное Меню</h1>
         <div class="stats-bar">
             <div style="color:#eab308;">💰: <span id="m-coins">0</span></div>
@@ -128,9 +131,9 @@
     let coins = 0; let crystals = 0; let selectedLevelToPlay = 1;
     let currentMapWorld = 1; let globalActiveEvent = "none"; let isAdminVerified = false; let playerNickname = "Юзер_Админ";
 
-    const lanes = new Array(45, 135, 225); 
+    const lanes =; 
     let playerLane = 1; let playerX = 60; let buildingsPassed = 0;
-    let gameActive = false; let obstacles = [];
+    let gameActive = false; let obstacles = []; let spawnTimer = 0;
     let bossActive = false; let bossMode = 'charging'; let bossTimer = 0; let bossX = 500;
     let warningLane = 0; let gorillaAttackCount = 0;
 
@@ -149,7 +152,3 @@
     ];
     let currentSkin = 0;
 
-    function initCanvases() {
-        canvas = document.getElementById('gameCanvas'); if(canvas) ctx = canvas.getContext('2d');
-        mapCanvas = document.getElementById('mapCanvas'); 
-        if(mapCanvas) {
