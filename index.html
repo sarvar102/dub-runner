@@ -130,12 +130,11 @@
 
     const lanes = new Array(45, 135, 225); 
     let playerLane = 1; let playerX = 60; let buildingsPassed = 0;
-    let gameActive = false; let obstacles = []; let spawnTimer = 0;
+    let gameActive = false; let obstacles = [];
     let bossActive = false; let bossMode = 'charging'; let bossTimer = 0; let bossX = 500;
     let warningLane = 0; let gorillaAttackCount = 0;
 
-    const canvas = document.getElementById('gameCanvas'); const ctx = canvas ? canvas.getContext('2d') : null;
-    const mapCanvas = document.getElementById('mapCanvas'); const mctx = mapCanvas ? mapCanvas.getContext('2d') : null;
+    let canvas = null; let ctx = null; let mapCanvas = null; let mctx = null;
     let finishedLevels = Array(100).fill(false);
     
     const skins = [
@@ -150,4 +149,7 @@
     ];
     let currentSkin = 0;
 
-    function loadGame() {
+    function initCanvases() {
+        canvas = document.getElementById('gameCanvas'); if(canvas) ctx = canvas.getContext('2d');
+        mapCanvas = document.getElementById('mapCanvas'); 
+        if(mapCanvas) {
