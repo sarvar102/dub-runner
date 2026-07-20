@@ -21,6 +21,7 @@
         .btn-shop { background: #f43f5e; }
         .btn-inv { background: #0ea5e9; }
         .btn-wheel { background: #ec4899; }
+        .btn-exchange { background: #0284c7; border: 2px solid #38bdf8; }
         .btn-back { background: #64748b; width: auto; display: inline-block; padding: 10px 25px; }
         .btn-nav { padding: 6px 14px; background: #334155; border: 1px solid #475569; color: white; cursor: pointer; border-radius: 8px; }
         .header-buttons { display: flex; justify-content: space-between; max-width: 650px; margin: 10px auto; padding: 0 10px; }
@@ -43,7 +44,7 @@
     </div>
 
     <div id="screen-menu" class="screen active">
-        <div style="text-align: left; color: #38bdf8; font-weight: bold; margin-bottom: 10px;">👤 Игрок: [<span id="display-player-name">Загрузка...</span>]</div>
+        <div style="text-align: left; color: #38bdf8; font-weight: bold; margin-bottom: 10px;">👤 Игрок: [<span id="display-player-name">Юзер_Админ</span>]</div>
         <h1>Главное Меню</h1>
         <div class="stats-bar">
             <div style="color:#eab308;">💰: <span id="m-coins">0</span></div>
@@ -52,6 +53,7 @@
         </div>
         <button class="btn btn-play" onclick="clickPlayButton()">🎮 ИГРАТЬ (КАРТА МИРОВ)</button>
         <button class="btn btn-wheel" onclick="openWheelScreen()">🎰 КОЛЕСО ФОРТУНЫ</button>
+        <button class="btn btn-exchange" onclick="exchangeCrystalsForCoins()">🔄 ОБМЕНЯТЬ 1💎 НА 10💰</button>
         <button class="btn btn-shop" onclick="openShop()">🛒 МАГАЗИН ПЕРСОНАЖЕЙ</button>
         <button class="btn btn-inv" onclick="openInventory()">🎒 ИНВЕНТАРЬ</button>
     </div>
@@ -124,11 +126,11 @@
 
 <script>
     let coins = 0; let crystals = 0; let selectedLevelToPlay = 1;
-    let currentMapWorld = 1; let globalActiveEvent = "none"; let isAdminVerified = false; let playerNickname = "";
+    let currentMapWorld = 1; let globalActiveEvent = "none"; let isAdminVerified = false; let playerNickname = "Юзер_Админ";
 
     const lanes = new Array(45, 135, 225); 
     let playerLane = 1; let playerX = 60; let buildingsPassed = 0;
-    let gameActive = false; let obstacles = []; let gameCrystals = []; let spawnTimer = 0;
+    let gameActive = false; let obstacles = []; let spawnTimer = 0;
     let bossActive = false; let bossMode = 'charging'; let bossTimer = 0; let bossX = 500;
     let warningLane = 0; let gorillaAttackCount = 0;
 
@@ -149,7 +151,3 @@
     let currentSkin = 0;
 
     function loadGame() {
-        if(localStorage.getItem('s_player_nick')) {
-            playerNickname = localStorage.getItem('s_player_nick');
-        } else { 
-            let randomId = Math.floor(Math.random() * 900) + 1;
