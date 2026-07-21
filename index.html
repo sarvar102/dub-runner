@@ -17,7 +17,6 @@
         #screen-promo { background: #1e293b; border: 3px solid #3b82f6; }
         #screen-wheel { background: #1e1b4b; border: 3px solid #a855f7; }
         
-        /* ГЕНИАЛЬНАЯ АНИМАЦИЯ УВЕЛИЧЕНИЯ КНОПОК ОТ САРВАРА */
         .btn { color: white; border: none; padding: 14px 24px; margin: 12px auto; cursor: pointer; border-radius: 12px; font-size: 18px; font-weight: bold; width: 90%; display: block; transition: transform 0.2s ease, box-shadow 0.2s ease; }
         .btn:hover { transform: scale(1.04); box-shadow: 0 0 15px rgba(255,255,255,0.2); }
         
@@ -143,3 +142,7 @@
             <button class="btn-nav" onclick="moveUp()" style="padding: 15px 30px; font-size: 18px; margin-right: 10px;">▲ ВВЕРХ</button>
             <button class="btn-nav" onclick="moveDown()" style="padding: 15px 30px; font-size: 18px;">▼ ВНИЗ</button>
         </div>
+        <button class="btn btn-back" onclick="exitGameToMap()" style="width:40%;">К карте</button>
+    </div>
+
+<script>
