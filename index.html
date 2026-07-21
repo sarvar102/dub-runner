@@ -56,7 +56,7 @@
 <body>
 
     <div class="header-buttons">
-        <button class="btn-nav" onclick="openPromoScreen()">🔑 Коды</button>
+        <button class="btn-nav" onclick="openPromoScreen()">🔑 Коды [Клавиша K]</button>
         <button class="btn-nav" id="admin-panel-btn" style="display:none; background:#7c3aed;" onclick="goToAdminScreen()">🔮 Панель Ивентов</button>
         <button class="btn-nav" onclick="alert('ТГ Канал создателя: t.me/runner231')">⚙️ Инфо</button>
     </div>
@@ -72,11 +72,11 @@
             <div style="color:#0ea5e9;">💎: <span id="m-crystals">0</span></div>
             <div style="color:#a855f7;">⭐ Сюжет: <span id="m-level">0</span> / 100</div>
         </div>
-        <button class="btn btn-play" onclick="clickPlayButton()">🎮 ИГРАТЬ (КАРТА МИРОВ)</button>
+        <button class="btn btn-play" onclick="clickPlayButton()">🎮 ИГРАТЬ (Z)</button>
         <button class="btn btn-wheel" onclick="openWheelScreen()">🎰 КОЛЕСО ФОРТУНЫ</button>
-        <button class="btn btn-exchange" onclick="exchangeCrystalsForCoins()">🔄 ОБМЕНЯТЬ 1💎 НА 10💰</button>
-        <button class="btn btn-shop" onclick="openShop()">🛒 МАГАЗИН ПЕРСОНАЖЕЙ</button>
-        <button class="btn btn-inv" onclick="openInventory()">🎒 ИНВЕНТАРЬ</button>
+        <button class="btn btn-exchange" onclick="exchangeCrystalsForCoins()">🔄 ОБМЕНЯТЬ 1💎 НА 10💰 (N)</button>
+        <button class="btn btn-shop" onclick="openShop()">🛒 МАГАЗИН ПЕРСОНАЖЕЙ (B)</button>
+        <button class="btn btn-inv" onclick="openInventory()">🎒 ИНВЕНТАРЬ (C)</button>
     </div>
 
     <div id="screen-wheel" class="screen">
@@ -96,20 +96,20 @@
             <button class="world-btn" id="w5-btn" onclick="switchMapWorld(5)">Мир 5 🪲</button>
         </div>
         <canvas id="mapCanvas" width="600" height="270"></canvas>
-        <button class="btn btn-back" onclick="backToMenu()">В меню</button>
+        <button class="btn btn-back" onclick="backToMenu()">В меню [Esc]</button>
     </div>
 
     <div id="screen-shop" class="screen">
         <h1 style="color: #00ff00; font-family: monospace;">🛒 МАГАЗИН</h1>
         <div class="stats-bar" style="border: 1px solid #00ff00; color: #00ff00;">💰 Монеты: <span id="shop-coins">0</span></div>
         <div class="skins-grid" id="shop-content-container"></div>
-        <button class="btn btn-back" onclick="backToMenu()">Назад</button>
+        <button class="btn btn-back" onclick="backToMenu()">Назад [Esc]</button>
     </div>
 
     <div id="screen-inventory" class="screen">
         <h1>🎒 Гардероб</h1>
         <div class="skins-grid" id="inventory-container"></div>
-        <button class="btn btn-back" onclick="backToMenu()">Назад</button>
+        <button class="btn btn-back" onclick="backToMenu()">Назад [Esc]</button>
     </div>
 
     <div id="screen-admin" class="screen">
@@ -128,7 +128,7 @@
         <input type="text" id="promo-input" style="padding:10px; border-radius:8px; width:60%; font-size:16px;"><br><br>
         <button class="btn btn-play" onclick="checkPromoCode()">Активировать</button>
         <p id="promo-res"></p>
-        <button class="btn btn-back" onclick="backToMenu()">Назад</button>
+        <button class="btn btn-back" onclick="backToMenu()">Назад [Esc]</button>
     </div>
 
     <div class="screen" id="screen-game">
@@ -139,10 +139,6 @@
         </div>
         <canvas id="gameCanvas" width="600" height="270"></canvas>
         <div style="margin-top: 15px;">
-            <button class="btn-nav" onclick="moveUp()" style="padding: 15px 30px; font-size: 18px; margin-right: 10px;">▲ ВВЕРХ</button>
-            <button class="btn-nav" onclick="moveDown()" style="padding: 15px 30px; font-size: 18px;">▼ ВНИЗ</button>
+            <button class="btn-nav" onclick="moveUp()" style="padding: 15px 30px; font-size: 18px; margin-right: 10px;">▲ ВВЕРХ [W]</button>
+            <button class="btn-nav" onclick="moveDown()" style="padding: 15px 30px; font-size: 18px;">▼ ВНИЗ [S]</button>
         </div>
-        <button class="btn btn-back" onclick="exitGameToMap()" style="width:40%;">К карте</button>
-    </div>
-
-<script>
